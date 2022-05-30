@@ -8,7 +8,9 @@ public class Demo {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter number of students:");
 		int n=sc.nextInt();
-		for(int i=1; i<=n; i++) {
+		StudentBean[] sb=new StudentBean[n];
+		int sum=0;
+		for(int i=0; i<sb.length; i++) {
 			System.out.println("Enter roll number:");
 			int roll=sc.nextInt();
 			
@@ -21,18 +23,25 @@ public class Demo {
 			System.out.println("Enter Marks:");
 			int marks=sc.nextInt();
 			
-			StudentBean sb=new StudentBean();
-			sb.setRoll(roll);
-			sb.setName(name);
-			sb.setAddress(address);
-			sb.setMarks(marks);
+			StudentBean sb1=new StudentBean();
+			sb1.setRoll(roll);
+			sb1.setName(name);
+			sb1.setAddress(address);
+			sb1.setMarks(marks);
 			
-			System.out.println("Roll number: " +sb.getRoll());
-			System.out.println("Name: " +sb.getName());
-			System.out.println("Address: " +sb.getAddress());
-			System.out.println("Marks: " +sb.getMarks());
+			sb[i]=sb1;
+			sum+=marks;
+		}
+		
+		for(int j=0; j<sb.length; j++) {
+			System.out.println("Roll number: " +sb[j].getRoll());
+			System.out.println("Name: " +sb[j].getName());
+			System.out.println("Address: " +sb[j].getAddress());
+			System.out.println("Marks: " +sb[j].getMarks());
 			System.out.println("***************************************************");
 		}
+		
+		System.out.println("Avg:" +sum/sb.length);
 
 	}
 

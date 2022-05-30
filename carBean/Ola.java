@@ -12,12 +12,15 @@ public class Ola {
 
 	public int calculateBill(Car car) {
 		HatchBack hb1= new HatchBack();
-		int total1=car.getNumberOfPassenger()*hb1.farePerKm;
+		Sedan sd=(Sedan)car;
+		if(car.equals(hb1)){
+			int total1=car.getNumberOfPassenger()*hb1.farePerKm;
+			return total1;
+        }
 		
-		return total1;
-//		Sedan sd=(Sedan)car;
-//		int total=car.getNumberOfPassenger()*sd.farePerKm;
-//		
-//		return total;
+		int total=car.getNumberOfPassenger()*sd.farePerKm;
+		
+		return total;
 	}
+	
 }
